@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Genius Mind | Login</title>
+
+    <link rel="stylesheet" href="css/Login.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" href="assets/img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styleFormularioLogin.css">
+    <link rel="icon" href="assets/img/logo.png">
+
+</head>
+
+<body>
+
+    <!--Header-->
+    <header class="header">
+        <a href="index.html" class="img_logo"> <img src="assets/img/logo.png" alt="" id="img_logo"></a>
+        <a href="index.html" class="logo">Genius Mind</a>
+
+        <box-icon name='menu' id="menu_icon"></box-icon>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="cadastro.html">Cadastre-se</a>
+            <a href="login.html" class="active">Login</a>
+        </nav>
+    </header>
+
+    <!-- formulario -->
+
+    <main id="container">
+        <form id="login_form">
+            <div id="form_header">
+                <h1>Login</h1>
+                <i id="mode_icon" class="fa-solid fa-brain"></i>
+            </div>
+            <div id="inputs">
+                <div class="input-box">
+                    E-mail
+                    <label for="email">
+                        <div class="input_field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="email" name="email">
+
+                        </div>
+                    </label>
+                </div>
+                <div class="input-box">
+                    Senha
+                    <label for="senha">
+                        <div class="input_field">
+                            <i class="fa-solid fa-key"></i>
+                            <input type="password" id="senha" name="senha">
+
+                        </div>
+                    </label>
+                </div>
+            </div>
+            </div>
+            <button onclick="entrar(event)" id="login_button">
+                Login
+            </button>
+        </form>
+        <script src="js/scriptDarkModeForm.js"></script>
+        <script src="./js/funcoes.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+<script>
+
+
+
+    function entrar(event) {
+        aguardar();
+        event.preventDefault();
+
+        var emailVar = email.value;
+        var senhaVar = senha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario
+                        ;
+
+                    setTimeout(function () {
+                        console.log("logo");
+                        window.location.href = "http://localhost:3333/dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+
+</script>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Genius Mind | Cadastro</title>
+
+    <link rel="stylesheet" href="css/cadastro.css   ">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" href="assets/img/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styleformulario.css">
+    <link rel="icon" href="assets/img/logo.png">
+
+<body>
+    <!-- formulario -->
+    <header class="header">
+        <a href="index.html" class="img_logo"> <img src="assets/img/logo.png" alt="" id="img_logo"></a>
+        <a href="index.html" class="logo">Genius Mind</a>
+        <box-icon name='menu' id="menu_icon"></box-icon>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="cadastro.html" class="active">Cadastre-se</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+    <main id="container">
+        <form id="login_form">
+            <div id="form_header">
+                <h1>Cadastro</h1>
+                <i id="mode_icon" class="fa-solid fa-brain"></i>
+            </div>
+
+            <div id="inputs">
+                <div class="input-box">
+                    <label for="name">
+                        Nome
+                        <div class="input_field">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="input_name" name="name">
+                        </div>
+                    </label>
+                </div>
+                <div class="input-box">
+                    E-mail
+                    <label for="email">
+                        <div class="input_field">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="input_email" name="email">
+                        </div>
+                    </label>
+                </div>
+                <div class="input-box">
+                    Senha
+                    <label for="senha">
+                        <div class="input_field">
+                            <i class="fa-solid fa-key"></i>
+                            <input type="password" id="input_senha" name="senha">
+                        </div>
+                    </label>
+                </div>
+                <div class="input-box">
+                    Confirmação De Senha
+                    <label for="confirmacaoSenha">
+                        <div class="input_field">
+                            <i class="fa-solid fa-key"></i>
+                            <input type="password" id="input_confirmacaoSenha" name="confirmacaoSenha">
+                        </div>
+                    </label>
+                </div>
+                <select id="selectAreaConhecimento">
+                    <option value="SelecionarOpcao" disabled>Selecione uma opção</option>
+                    <option value="AreaGeral">Conhecimentos Gerais</option>
+                    <option value="AreaFisica">Física</option>
+                    <option value="AreaMatematica">Matemática</option>
+                    <option value="AreaTecnologia">Tecnologia</option>
+                </select>
+                </label>
+            </div>
+            </div>
+            <button type="submit" id="login_button" onclick="cadastrar(event)">
+                Cadastrar
+            </button>
+        </form>
+    </main>
+    <script src="js/scriptDarkModeForm.js"></script>
+    <footer class="footer">
+        <div class="footer_text">
+            <p> Copyright &copy; 2023/1 by Felipe De Andrade | Todos os direitos reservados</p>
+        </div>
+        <div class="footer_iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+    </footer>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="./js/funcoes.js"></script>
+
+</body>
+
+</html>
+
+<script>
+    function cadastrar(event) {
+        aguardar();
+        event.preventDefault();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = input_name.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+        var confirmacaoSenhaVar = input_confirmacaoSenha.value;
+        var AreaSelecionada = selectAreaConhecimento.value;
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || AreaSelecionada == "") {
+            alert("Os Campos estão em branco! Por favor, os preencha e tente novamente!");
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                AreaConhecimentoServer: AreaSelecionada,
+                idusuarioServer: sessionStorage.ID_USUARIO
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+
+                alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+
+                setTimeout(() => {
+                    window.location.href = "http://localhost:3333/login.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

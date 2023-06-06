@@ -1,0 +1,322 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: black;
+}
+
+:root {
+  --tamanho-header: 80px;
+  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-footer: 65px;
+}
+
+.container {
+  display: flex;
+  width: 85%;
+  margin: auto;
+}
+
+.header .container {
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(0, 0, 0, 0.);
+  height: 100%;
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+}
+
+.agora {
+  font-weight: 800;
+}
+
+.navbar {
+  width: 350px;
+  display: flex;
+  align-items: center;
+  color: #e3b062;
+}
+
+.navbar li {
+  display: inline;
+  margin-right: 10px;
+  /* Ajuste a margem conforme necessário */
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.titulo {
+  margin-left: 21%;
+  color: white;
+  font-weight: 500;
+}
+
+.titulo_home {
+
+  margin-left: 17%;
+  color: white;
+  font-weight: 500;
+
+}
+
+.header h1 {
+  height: 50px;
+}
+
+.banner {
+  height: var(--tamanho-banner);
+  background-image: url('../assets/img/eisten.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  height: 47rem;
+
+}
+
+.section {
+
+  display: flex;
+  justify-content: center;
+  height: 650px;
+}
+
+.container .tituloInicial {
+  display: flex;
+  backdrop-filter: blur(7px);
+  background-color: rgba(0, 0, 0, 0.306);
+  justify-content: center;
+  color: #e5e5e5;
+  font-size: 35px;
+  width: 60%;
+  margin-left: 19%;
+  margin-top: 160px;
+  padding: 1%;
+}
+
+.titulos {
+  display: flex;
+  flex-direction: column;
+}
+
+.titulos2 {
+  width: 100%;
+  display: flex;
+
+
+}
+
+
+.container .tituloInicial3 {
+  display: flex;
+  backdrop-filter: blur(7px);
+  background-color: rgba(0, 0, 0, 0.306);
+  justify-content: center;
+  color: #e5e5e5;
+  font-size: 35px;
+  width: 1300px;
+  margin-top: 280px;
+  padding: 1%;
+}
+
+.banner .container {
+  justify-content: center;
+  align-items: center;
+  color: #32b9cd;
+  height: 100%;
+}
+
+.banner .container p {
+  font-size: 36px;
+  color: white;
+  width: 280px;
+}
+
+.banner .container span {
+  font-weight: 800;
+}
+
+.social {
+  background-color: #e5e5e5;
+  display: flex;
+}
+
+.social .container {
+  justify-content: center;
+}
+
+.box img {
+  width: 170px;
+}
+
+.social .container .boxes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.box {
+  width: 280px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box p {
+  text-align: center;
+}
+
+.login {
+  height: var(--tamanho-login);
+  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+  background-size: cover;
+}
+
+.login .container {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card {
+  width: 30%;
+  background-color: #000000;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  color: white;
+  row-gap: 20px;
+}
+
+.card-cadastro {
+  height: 80%;
+}
+
+.card-login {
+  height: 60%;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.formulario {
+  display: flex;
+  height: 90%;
+  width: 80%;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.formulario span {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.formulario input {
+  border: 2px solid #32b9cd;
+  height: 30px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.botao {
+  cursor: pointer;
+  font-family: "Barlow", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #fff;
+  background-color: #e3b062;
+  width: 120px;
+  height: 30px;
+  align-self: center;
+  margin-top: 40px;
+}
+
+.loading-div {
+  width: 50px;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+#div_erros_login {
+  display: none
+}
+
+.alerta_erro {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: #e6005a 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
+
+.card_erro #mensagem_erro {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.footer {
+  height: var(--tamanho-footer);
+  width: 100%;
+  background-color: #32b8cd00;
+  color: #fff;
+}
+
+.footer h4 {
+  margin: 0;
+}
+
+.footer .container {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.footer .container .version {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.simulador {
+  color: white;
+}
+
+.simulador .container {
+  flex-direction: column;
+  overflow: scroll;
+  height: var(--tamanho-simulador);
+}

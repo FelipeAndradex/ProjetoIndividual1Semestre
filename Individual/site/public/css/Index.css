@@ -1,0 +1,181 @@
+.contexto .titulo .mvvv #titu {
+  background-color: rgb(0, 0, 0, 0.1);
+  color: white;
+  margin-left: 40%;
+  margin-right: 40%;
+  width: auto;
+  padding: 0.1%;
+  border-radius: 10px;
+  font-size: 25px;
+}
+
+.contexto .titulo .mvv img {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction: initial;
+  align-items: center;
+  margin-left: 25%;
+  padding: 1%;
+}
+
+.contexto .titulo .mvv {
+  width: 30%;
+  background-color: red;
+  margin-left: 5%;
+}
+
+.contexto .titulo .mvv p {
+  margin-left: 15%;
+}
+
+.header {
+  background-color: rgba(0, 0, 0, 0.84);
+  width: 100%;
+  position: fixed;
+  height: -90%;
+}
+
+.logo {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.header .container img {
+  width: 10%;
+  height: 90%;
+}
+
+.meio .titulo h1 {
+  margin-left: 22.5%;
+}
+
+.meio {
+  height: 135rem;
+  background-color: black;
+}
+
+.meio #id_margem3 {
+
+  margin-left: 315px;
+}
+
+.meio #id_margem2 {
+
+  margin-left: 400px;
+}
+
+.meio p {
+  width: 600px;
+  margin-left: 160px;
+}
+
+.meio #img_tecnologia {
+  width: 22%;
+  margin-left: 38%;
+  margin-top: 90px;
+
+}
+
+.titulo h2 {
+
+  margin-left: 32%;
+}
+
+.meio .titulo .modal .esquerdo {
+  background-color: rgb(128, 128, 128, 0.5);
+  width: 100%;
+  height: 22rem;
+  border-radius: 10px;
+}
+
+.meio .titulo .modal .esquerdo h2 {
+  padding-top: 10%;
+  margin-left: 29%;
+}
+
+.meio .titulo .modal .esquerdo #primeiro {
+  padding-top: 10%;
+  margin-left: 19.5%;
+}
+
+.meio .titulo .modal .esquerdo #terceiro {
+  padding-top: 10%;
+  margin-left: 25%;
+}
+
+
+.modal {
+  display: flex;
+  justify-content: space-between;
+  /* margin-right: 15%; */
+  margin-right: 10%;
+  padding-right: 20%;
+  height: 400px;
+}
+
+.modal_texto_esquerdo {
+  display: flex;
+  justify-content: center;
+
+}
+
+.final .titulo h1 {
+  margin-left: 21%;
+}
+
+.final {
+  height: 50rem;
+  background-color: black;
+}
+
+.final .titulo .modal .esquerdo {
+  background-color: rgb(128, 128, 128, 0.5);
+  width: 30%;
+  height: 36.5rem;
+  border-radius: 10px;
+}
+
+.final .titulo .modal .esquerdo h2 {
+  padding-top: 10%;
+  margin-left: 70px;
+}
+
+.final .titulo .modal .esquerdo #primeiro {
+  padding-top: 10%;
+  margin-left: 23%;
+}
+
+.final .titulo .modal .esquerdo #terceiro {
+  padding-top: 10%;
+  margin-left: 28%;
+}
+
+.final .titulo .modal .esquerdo #modal_img_um {
+  width: 17rem;
+  margin-left: 1rem;
+}
+
+.final .titulo .modal .esquerdo #primeiro_area {
+
+  margin-left: 95px;
+}
+
+.final .titulo .modal .esquerdo #terceiro_area {
+
+  margin-left: 95px;
+}
+
+
+
+.esquerdo {
+  margin-left: 2%;
+}
+
+.esquerdo,
+.meio,
+.direito {
+
+  background-color: black;
+}
