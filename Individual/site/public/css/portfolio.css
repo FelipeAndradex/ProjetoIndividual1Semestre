@@ -129,7 +129,7 @@ section {
 
 .home_img img:hover {
 
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .home_content h3 {
@@ -288,15 +288,17 @@ span {
 }
 
 .portfolio h4 {
+    background: #1f242d7d;
+    margin-top: 0.8rem;
     font-size: 3rem;
-    color: var(--second--bg-color);
+    color: var(--text-color);
 }
 
 .portfolio p {
-    color: var(--second--bg-color);
+    background: #1f242d7d;
+    color: var(--text-color);
     font-size: 2rem;
 }
-
 
 .div_desafios {
     display: flex;

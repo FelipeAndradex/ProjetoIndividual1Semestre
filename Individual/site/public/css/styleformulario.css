@@ -41,7 +41,7 @@
     border-radius: 8px;
     gap: 30px;
     box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.336);
-    height: 73vh;
+    height: 79vh;
     margin-top: 4vh;
     animation: dark-to-light 0.3s ease-in-out;
 }
