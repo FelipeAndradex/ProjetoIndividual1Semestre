@@ -15,4 +15,12 @@ router.get("/totalQuizzes", function (req, res) {
     medidaController.totalQuizzes(req, res);
 });
 
+router.get("/rankingQuizzes", function (req, res) {
+    medidaController.rankingQuizzes(req, res);
+});
+
+router.post("/inserirPontos", function (req, res) {
+    medidaController.inserirPontosUsuarios(req, res);
+});
+
 module.exports = router;

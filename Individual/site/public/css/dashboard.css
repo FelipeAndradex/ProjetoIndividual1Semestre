@@ -65,6 +65,13 @@ body {
     box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
 }
 
+.spanQuizz a {
+    color: #fff;
+    font-size: 500;
+    font-weight: 17px;
+    padding: 15px;
+}
+
 .header_left img {
     width: 65%;
     transition: .3s;
